@@ -7,26 +7,21 @@ import retrofit2.http.*
 
 
 interface RecipeApi {
-    @GET("Recipe")
-    fun recipeList(): Call<List<Recipe>>
 
     @GET("recipe")
     fun getRecipes(
         @Query("name") name: String?,
         @Query("ingredients") ingredients: String?,
         @Query("imageUrl") imageUrl: String?
-    ): Call<RecipePage?>?
+    ): Call<RecipePage>
 
     @GET("recipe/{recipeId}")
     fun getRecipeById(
         @Path("recipeId") id: Long?
-    ): Call<Recipe?>?
+    ): Call<Recipe>
 
     @POST("recipe")
     fun recipeCreate(@Body data: Recipe)
-
-    @GET("recipe/{id}")
-    fun recipeFindById(@Path("id") id: Long): Call<Recipe>
 
     @PUT("recipe/{id}")
     fun recipeUpdate(@Path("id") id: Long, @Body data: Recipe)

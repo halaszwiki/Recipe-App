@@ -25,8 +25,7 @@ class MainFragment : Fragment(), MainScreen {
     private val lastVisibleItemPosition: Int
         get() = llm.findLastVisibleItemPosition()
 
-    @Inject
-    lateinit var mainPresenter: MainPresenter
+    @Inject lateinit var mainPresenter: MainPresenter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
