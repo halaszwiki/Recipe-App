@@ -1,31 +1,17 @@
 package com.example.recipeapp.network
 
-import com.example.recipeapp.model.Recipe
 import com.example.recipeapp.model.RecipePage
+import com.example.recipeapp.model.Results
 import retrofit2.Call
 import retrofit2.http.*
 
-
 interface RecipeApi {
 
-    @GET("recipe")
+    @GET("/")
     fun getRecipes(
-        @Query("name") name: String?,
+        @Query("title") name: String?,
+        @Query("href") href: String?,
         @Query("ingredients") ingredients: String?,
-        @Query("imageUrl") imageUrl: String?
+        @Query("thumbnail") imageUrl: String?
     ): Call<RecipePage>
-
-    @GET("recipe/{recipeId}")
-    fun getRecipeById(
-        @Path("recipeId") id: Long?
-    ): Call<Recipe>
-
-    @POST("recipe")
-    fun recipeCreate(@Body data: Recipe)
-
-    @PUT("recipe/{id}")
-    fun recipeUpdate(@Path("id") id: Long, @Body data: Recipe)
-
-    @DELETE("recipe/{id}")
-    fun recipeDeleteById(@Path("id") id: Long)
 }

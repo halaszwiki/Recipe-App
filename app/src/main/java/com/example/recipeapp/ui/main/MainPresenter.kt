@@ -22,9 +22,9 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         super.detachScreen()
     }
 
-    fun refreshRecipes(name: String){
+    fun refreshRecipes(){
         executor.execute{
-            recipesInteractor.getRecipes(name)
+            recipesInteractor.getRecipes()
         }
     }
 

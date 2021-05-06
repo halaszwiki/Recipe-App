@@ -34,7 +34,7 @@ class DetailsActivity : AppCompatActivity(), DetailsScreen {
 
     override fun onStart(){
         super.onStart()
-        detailsPresenter.getRecipe(intent.getIntExtra(RecipeAdapter.KEY_RECIPE_ID, 0).toLong())
+
     }
 
     override fun showDetails(recipe: Recipe) {

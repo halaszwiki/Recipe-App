@@ -33,7 +33,7 @@ class MainTest {
 
     @Test
     fun test(){
-        mainPresenter.refreshRecipes("")
+        mainPresenter.refreshRecipes()
         val list = argumentCaptor<List<Recipe>>()
         verify(mainScreen).showRecipes(list.capture())
         assert(list.value.isNotEmpty())

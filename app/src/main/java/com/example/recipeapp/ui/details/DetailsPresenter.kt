@@ -1,7 +1,6 @@
 package com.example.recipeapp.ui.details
 
 import com.example.recipeapp.interactor.recipes.RecipesInteractor
-import com.example.recipeapp.interactor.recipes.event.GetRecipeEvent
 import com.example.recipeapp.model.Recipe
 import com.example.recipeapp.ui.Presenter
 import org.greenrobot.eventbus.EventBus
@@ -24,14 +23,10 @@ class DetailsPresenter  @Inject constructor (private val executor: Executor,
     }
 
 
-    fun getRecipe(id: Long){
+    fun getRecipe(){
         executor.execute{
-            recipesInteractor.getRecipe(id)
+
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onGetRecipeEvent(event: GetRecipeEvent){
-        screen?.showDetails(event.recipe ?: Recipe())
-    }
 }

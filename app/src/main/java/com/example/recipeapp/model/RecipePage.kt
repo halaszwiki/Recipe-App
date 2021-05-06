@@ -1,23 +1,19 @@
 package com.example.recipeapp.model
 
 import com.google.gson.annotations.SerializedName
-import io.swagger.annotations.ApiModel
-import io.swagger.annotations.ApiModelProperty
 
 
-@ApiModel(description = "")
-public class RecipePage {
+data class RecipePage(
+        @SerializedName("title")
+        val title: String? = null,
+        @SerializedName("version")
+        val version: Number? = null,
+        @SerializedName("href")
+        val href: String? = null,
+        @SerializedName("results")
+        val results: List<Results>? = null
+)
 
-    @SerializedName("results")
-    private var results: List<Recipe> = ArrayList()
 
-    @ApiModelProperty(value = "")
-    fun getResults(): List<Recipe?> {
-        return results
-    }
 
-    fun setResults(results: List<Recipe>) {
-        this.results = results
-    }
 
-}

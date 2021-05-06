@@ -73,13 +73,13 @@ class MainFragment : Fragment(), MainScreen {
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView.layoutManager!!.itemCount
                 if(totalItemCount == lastVisibleItemPosition + 1){
-                    mainPresenter.refreshRecipes("")
+                    mainPresenter.refreshRecipes()
                 }
             }
         }
 
         recyclerViewRecipes.addOnScrollListener(scrollListener)
-        mainPresenter.refreshRecipes("")
+        mainPresenter.refreshRecipes()
     }
 
     override fun showMessage(message: String) {
